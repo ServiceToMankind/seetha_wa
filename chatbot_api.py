@@ -4,7 +4,7 @@ from system_text import system_text
 
 # Load your API key from an environment variable or secret management service
 # openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.api_key="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"
+openai.api_key="OPENAI_API_KEY"
 
 # load system text
 system_text = system_text()
