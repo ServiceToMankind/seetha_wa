@@ -15,6 +15,8 @@ system_text = system_text()
 def call_function(function_name, function_args):
     if function_name == "total_donations":
         return total_donations()
+    elif function_name == "donations_list":
+        return donations_list(**function_args)
     # Add more functions here as needed
 
 def get_chatbot_response(user_message, conversation=[]):
@@ -43,6 +45,10 @@ def get_chatbot_response(user_message, conversation=[]):
 
         # Call the function and get the result
         function_result = call_function(function_name, function_args)
+        # if not function_result:
+        #     function_result = "Sorry, I couldn't find that information."
+        if function_result is None:
+            function_result = "Sorry, I couldn't find that information."
 
         # Append the function call and response to the conversation
         conversation.append({"role": "assistant", "content": response_message["content"]})
